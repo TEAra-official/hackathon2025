@@ -4,7 +4,7 @@ export default function Home() {
       {/* セクション1：キャッチコピー */}
       <section className="flex flex-col items-center justify-center text-center py-16 px-6 bg-gradient-to-b from-green-100 to-white">
         <h2 className="text-3xl md:text-5xl font-bold mb-4">
-          ようこそ TEAra へ！
+          TEAra です！
         </h2>
         <p className="text-base md:text-lg text-gray-700 max-w-2xl">
           TEAraは、「何かを作ってみたい」「アウトプットしてみたい」――そんな想いを持つ人が集まる、お茶の水女子大学の開発コミュニティです。
