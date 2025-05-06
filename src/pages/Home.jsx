@@ -21,8 +21,10 @@ export default function Home() {
           alt="TEAra Hackathon Banner"
           className="w-full max-w-3xl rounded-xl shadow-lg"
         />
-        <body>
-          <h1>メンバー紹介</h1>
+      </section>
+       <section className="flex flex-col items-center justify-center text-center py-16 px-6 bg-gradient-to-b from-red-100 to-white"
+       > 
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">メンバー紹介</h1>
           <p>１年生 ２人</p>
           <p>２年生 ５人</p>
           <p>３年生 ６人</p>
@@ -36,7 +38,10 @@ export default function Home() {
 
           
 
-        </body>
+      
+      
+          
+      
       </section>
 
       {/* セクション3：CTA */}
