@@ -1,20 +1,19 @@
-export default function Schedule() {
+export default function Records() {
     // イベントデータ
     const events = [
-        { month: "４月", name: "新歓", date: "2025-04-23", detail: "", image_src: [], invite: [true, "2025/4/16"]},
-        { month: "６月", name: "合宿", date: "未定", detail: "", image_src: [], invite: [true, "2025/5/31"]},
-        { month: "８月", name: "夏フェス", date: "未定", detail: "", image_src: [], invite: [false]},
-        { month: "１０月", name: "合宿２（仮）", date: "未定", detail: "", image_src: [], invite: [false] },
-        { month: "１２月", name: "忘年会", date: "未定", detail: "", image_src: [] , invite: [false]},
+        { month: "４月", name: "新歓コント大会", date: "2024-04-15", detail: "新入生歓迎の気持ちを込めて、全員で全力でコントをしました！新入生も緊張していたのか反応は薄かったけれど、やり切った達成感がありました！", image_src: ["/4_konto.png"] },
+        { month: "６月", name: "合宿", date: "2024-06-10", detail: "ロッククライミングに挑戦しました！", image_src: ["/6_rock.png"] },
+        { month: "８月", name: "夏フェス", date: "2024-08-20", detail: "ドフラミンゴもノリノリ🎵", image_src: ["/8_fes.png"] },
+        { month: "１０月", name: "親睦を深める会", date: "2024-10-05", detail: "空を飛びました", image_src: ["/10_sky.png", "/10_sky2.png", "/10_sky3.png", "/10_sky4.png"] },
+        { month: "１２月", name: "忘年会", date: "2024-12-22", detail: "ゲストはフランキーでした！", image_src: ["/12_bohnenkai2.png", "/12_bohnenkai.png"] },
+        { month: "２月", name: "寒中水泳大会", date: "2025-2-5", detail: "気温３度でしたが、絆は温まりました！", image_src: ["/2_suiei.png"] }
     ];
 
     // JSXとしてのページ構成
     return (
         <main className="text-black w-full bg-gray-50 px-4 py-10">
-            <PageTitle title="2025年度 年間スケジュール" />
-            <Invite events={events} />
-            <br></br>
-            <p className="text-center">(※以下のボタンをクリックするとその月のイベント詳細に飛べます)</p>
+            <PageTitle title="2024年度 活動記録" />
+            <p className="text-center">(※以下のボタンをクリックするとその月のレポートに飛べます)</p>
             <br></br>
             <EventList_button events={events} />
             <br></br>
@@ -28,37 +27,6 @@ function PageTitle({ title }) {
     return <h1 className="text-3xl font-bold text-center mb-8">
         {title}</h1>;
 }
-
-// 募集中企画用コンポーネント
-function Invite({ events }) {
-    return (
-        <ul className="bg-white px-8 py-4">
-            <div className="text-2xl text-center mb-3">参加者募集中の企画↓</div>
-            <div className="text-center mb-2">Googleフォーム回答締切：</div>
-            {events.map((event, idx) => {
-                if (event.invite[0] === true) {
-                    return (
-                        <ul className="">
-                        <li key={idx} className="text-center">
-                            <a
-                                href={"https://example.com/googleform/" + idx} // 実際のフォームURLに置き換える
-                                className="text-blue-600 underline hover:text-blue-800"
-                                target="_blank" rel="noopener noreferrer"
-                            >
-                                {event.name}：　{event.invite[1]}まで
-                            </a>
-                        </li>
-                        </ul>
-                    );
-                } else {
-                    return null;
-                }
-            })}
-        </ul>
-    );
-}
-
-
 
 // イベントボタンリストを表示するコンポーネント
 function EventList_button({ events }) {
@@ -125,7 +93,7 @@ function EventDetail({ event }) {
                             className="w-[200px] h-[200px] object-cover rounded"
                         />
                     ))
-
+                
                 }
             </div>
 
