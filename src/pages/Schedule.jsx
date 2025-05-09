@@ -145,7 +145,7 @@ function EventDetail({ event }) {
     );
 }
 
-function EventDetail_private( {event} ){
+function EventDetail_private({ event }) {
     return (
         <div className="p-4 border-t border-green-700">
             <h2 className="text-2xl text-center font-bold">
@@ -159,5 +159,5 @@ function EventDetail_private( {event} ){
             </p>
 
         </div>
-    );   
+    );
 }

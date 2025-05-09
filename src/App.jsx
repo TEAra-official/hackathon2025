@@ -1,20 +1,30 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Schedule from "./pages/Schedule";
 import Records from "./pages/Records";
 import Password from "./pages/Password";
-import Schedule_private from "./pages/Schedule_private"; 
+import Schedule_private from "./pages/Schedule_private";
 import Members from "./pages/Members";
 import News from "./pages/News";
 import Links from "./pages/Links";
 
 export default function App() {
+  const location = useLocation();
+
+  // Passwordページだけはヘッダー・ナビなし
+  const hideLayout = location.pathname === "/records/password";
+
   return (
     <>
-      <Header />
-      <Navbar />
+      {!hideLayout && (
+        <>
+          <Header />
+          <Navbar />
+        </>
+      )}
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/schedule" element={<Schedule />} />

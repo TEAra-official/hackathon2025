@@ -12,6 +12,7 @@ export default function Records() {
 
     // JSXとしてのページ構成
     return (
+        
         <main className="text-black w-full bg-gray-50 px-4 py-10">
             <PageTitle title="2024年度 活動記録" />
             <p className="text-center">(※以下のボタンをクリックするとその月のレポートに飛べます)</p>
