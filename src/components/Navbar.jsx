@@ -58,7 +58,7 @@ export default function Navbar() {
             {/* 活動ドロップダウン */}
             <button
               onClick={toggleActivityMenu}
-              className="text-blue-600 font-medium text-sm hover:text-blue-500 focus:outline-none bg-transparent border-none p-0">
+              className="font-medium text-[#646cff] hover:text-[#535bf2] focus:outline-none bg-transparent border-none p-0">
               活動
             </button>
             {isActivityOpen && (
