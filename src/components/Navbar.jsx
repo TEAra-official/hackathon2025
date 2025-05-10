@@ -1,8 +1,30 @@
 import { Link } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
 
 export default function Navbar() {
+  const [isActivityOpen, setIsActivityOpen] = useState(false);
+  const activityRef = useRef(null);
+
+  const toggleActivityMenu = () => {
+    setIsActivityOpen((prev) => !prev);
+  };
+
+  // 外側クリックで閉じる
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (activityRef.current && !activityRef.current.contains(event.target)) {
+        setIsActivityOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <header className="relative w-full h-screen overflow-hidden">
+    <header className="relative w-full h-full">
       {/* 背景画像（画面全体）
       <div className="absolute inset-0 w-full h-full -z-10">
         <img
@@ -26,15 +48,37 @@ export default function Navbar() {
           お茶大生むけコミュニティ
         </p>
       </div>
-
-      {/* ナビバー */}
-      <nav className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-teal-400 to-green-400 shadow-md z-10">
-        <ul className="w-full flex justify-center gap-6 px-4 py-2 text-white font-medium text-sm">
+   {/* ナビバー */}
+   <nav className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-teal-400 to-green-400 shadow-md z-10">
+        <ul className="w-full flex justify-center gap-6 px-4 py-2 text-black font-medium text-sm">
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/schedule">スケジュール</Link>
+      <li className="relative" ref={activityRef}>
+            {/* 活動ドロップダウン */}
+            <button
+              onClick={toggleActivityMenu}
+              className="font-medium text-[#646cff] hover:text-[#535bf2] focus:outline-none bg-transparent border-none p-0">
+              活動
+            </button>
+            {isActivityOpen && (
+              <div className="absolute top-full left-0 mt-1 bg-white rounded shadow-lg py-2 w-36 z-50 border border-gray-200">
+                <Link
+                  to="/schedule"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-teal-600"
+                  onClick={() => setIsActivityOpen(false)}
+                >
+                  スケジュール
+                </Link>
+                <Link
+                  to="/record"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-teal-600"
+                  onClick={() => setIsActivityOpen(false)}
+                >
+                  活動記録
+                </Link>
+              </div>
+            )}
           </li>
           <li>
             <Link to="/members">members</Link>
