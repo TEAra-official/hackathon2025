@@ -4,7 +4,7 @@ export default function Home() {
       {/* セクション1：キャッチコピー */}
       <section className="flex flex-col items-center justify-center text-center py-16 px-6 bg-gradient-to-b from-green-100 to-white">
         <h2 className="text-3xl md:text-5xl font-bold mb-4">
-          ようこそ TEAra へ！
+          TEAra です！
         </h2>
         <p className="text-base md:text-lg text-gray-700 max-w-2xl">
           TEAraは、「何かを作ってみたい」「アウトプットしてみたい」――そんな想いを持つ人が集まる、お茶の水女子大学の開発コミュニティです。
@@ -21,6 +21,27 @@ export default function Home() {
           alt="TEAra Hackathon Banner"
           className="w-full max-w-3xl rounded-xl shadow-lg"
         />
+      </section>
+       <section className="flex flex-col items-center justify-center text-center py-16 px-6 bg-gradient-to-b from-red-100 to-white"
+       > 
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">メンバー紹介</h1>
+          <p>１年生 ２人</p>
+          <p>２年生 ５人</p>
+          <p>３年生 ６人</p>
+          <p>４年生 ８人</p>
+          <p>修士 １０人</p>
+          <p>計 ３０人で活動しています！</p>
+          <p>情報科学科が多いですが、数学科や共創工学部の文化情報工学科もいます👑</p>
+          <p> </p>
+          <p>このホームページの担当者は</p>
+
+
+          
+
+      
+      
+          
+      
       </section>
 
       {/* セクション3：CTA */}

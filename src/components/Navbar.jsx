@@ -37,6 +37,9 @@ export default function Navbar() {
             <Link to="/schedule">スケジュール</Link>
           </li>
           <li>
+            <Link to="/records">活動記録</Link>
+          </li>
+          <li>
             <Link to="/members">members</Link>
           </li>
           <li>
