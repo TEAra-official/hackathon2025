@@ -40,10 +40,10 @@ export default function Links() {
     ]
 
     return(
-        <div className="bg-gradient-to-b from-green-50 to-white min-h-screen py-8 px-4 pb-20 overflow-hidden">
+        <div className="w-full min-h-screen bg-lime-50 min-h-screen py-8 px-4 pb-20 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           {/* スケジュールの見出し */}
-        <h1 className="text-3xl font-bold text-center mb-8">
+        <h1 className="text-3xl font-bold text-center text-emerald-700 mb-8">
             TEAra Link集
         </h1>
 
