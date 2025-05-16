@@ -24,7 +24,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="relative w-full h-full">
+    <header className="relative w-full h-[66%]">
       {/* 背景画像（画面全体）
       <div className="absolute inset-0 w-full h-full -z-10">
         <img
