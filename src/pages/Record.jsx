@@ -78,110 +78,116 @@ export default function Record() {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-green-50 to-white min-h-screen py-8 px-4 pb-40">
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold text-center mb-10 text-gray-800">
-        活動記録
-      </h1>
-  
-      {/* 歴史のタイムライン */}
-      <section className="mb-20 max-w-3xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-6 border-b-2 pb-2 text-gray-800">
-          TEAraの歴史
-        </h2>
-        <div className="relative pl-8 border-l-2 border-teal-300">
-          {historyTimeline.map((item, index) => (
-            <div key={index} className="mb-6 relative">
-              <div className="absolute -left-10 w-5 h-5 rounded-full bg-teal-500"></div>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <span className="text-teal-600 font-semibold">{item.year}</span>
-                <p className="text-gray-700">{item.event}</p>
+    <section className="bg-lime-50 min-h-screen py-20 px-6 pb-40">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-center text-3xl md:text-4xl font-bold mb-4 text-emerald-700">
+          活動記録
+        </h1>
+        <div className="w-24 h-1.5 rounded-full bg-teal-400 mb-16 mx-auto" />
+        
+        {/* 歴史のタイムライン */}
+        <section className="relative bg-white rounded-lg py-12 px-6 mb-20 max-w-3xl mx-auto shadow-lg">
+          {/* グラデーションの上部 */}
+          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-lime-300 via-emerald-300 to-lime-300 rounded-t-lg" />
+
+          <h2 className="text-2xl font-semibold mb-6 border-b-2 pb-2 text-emerald-700">
+            TEAraの歴史
+          </h2>
+          <div className="relative pl-8 border-l-4 border-teal-400">
+            {historyTimeline.map((item, index) => (
+              <div key={index} className="mb-6 relative">
+                <div className="absolute -left-10 w-5 h-5 rounded-full bg-teal-500"></div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <span className="text-teal-600 font-semibold">{item.year}</span>
+                  <p className="text-gray-700">{item.event}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-  
-      {/* 2024年度 */}
-      <section className="mb-4 max-w-3xl mx-auto" ref={yearRefs['2024']}>
-        <div
-          className="flex justify-between items-center bg-gray-100 p-3 rounded cursor-pointer hover:bg-gray-200"
-          onClick={() => toggleYear('2024')}
-        >
-          <h2 className="text-xl font-semibold text-gray-800">2024年度</h2>
-          <span className="text-teal-600 text-2xl">
-            {openYears['2024'] ? '−' : '+'}
-          </span>
-        </div>
-  
-        {openYears['2024'] && (
-          <div className="bg-white p-5 rounded-b-xl shadow-sm border border-t-0 border-gray-200">
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold text-teal-700 mb-3 border-b pb-2">
-                企業関連
-              </h3>
-              <ul className="space-y-3">
-                {events2024.company.map((event, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="text-teal-600 font-medium min-w-12">{event.month}</span>
-                    <div className="ml-2">
-                      <div className="text-gray-800">{event.title}</div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-  
-            <div>
-              <h3 className="text-lg font-semibold text-teal-700 mb-3 border-b pb-2">
-                Workshop・勉強会
-              </h3>
-              <ul className="space-y-3">
-                {events2024.workshop.map((event, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="text-teal-600 font-medium min-w-12">{event.month}</span>
-                    <div className="ml-2">
-                      <div className="text-gray-800">{event.title}</div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            ))}
           </div>
-        )}
-      </section>
-  
-      {/* 過去の年度（折りたたみ式） */}
-      {Object.keys(pastEvents)
-        .sort((a, b) => parseInt(b) - parseInt(a))
-        .map((year) => (
-          <section key={year} className="mb-4 max-w-3xl mx-auto" ref={yearRefs[year]}>
-            <div
-              className="flex justify-between items-center bg-gray-100 p-3 rounded shadow-sm border border-gray-200 cursor-pointer hover:bg-gray-200"
-              onClick={() => toggleYear(year)}
-            >
-              <h2 className="text-xl font-semibold text-gray-800">{year}年度</h2>
-              <span className="text-teal-600 text-2xl">{openYears[year] ? '−' : '+'}</span>
-            </div>
-  
-            <div
-              className={`overflow-hidden transition-all duration-300 ${
-                openYears[year] ? 'max-h-[1000px]' : 'max-h-0'
-              }`}
-            >
-              <div className="bg-white p-5 rounded-b-xl shadow-sm border border-t-0 border-gray-200">
+
+          {/* グラデーションの下部 */}
+          <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-lime-300 via-emerald-300 to-lime-300 rounded-b-lg" />
+        </section>
+
+        <section className="mb-4 max-w-3xl mx-auto" ref={yearRefs['2024']}>
+          <div
+            className="flex justify-between items-center bg-gray-100 p-3 rounded shadow-md cursor-pointer hover:bg-gray-200"
+            onClick={() => toggleYear('2024')}
+          >
+            <h2 className="text-xl font-semibold text-gray-800">2024年度</h2>
+            <span className="text-teal-600 text-2xl">
+              {openYears['2024'] ? '−' : '+'}
+            </span>
+          </div>
+
+          {openYears['2024'] && (
+            <div className="bg-white p-5 rounded-b-xl shadow-md border border-t-0 border-gray-200">
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold text-teal-700 mb-3 border-b pb-2">
+                  企業関連
+                </h3>
                 <ul className="space-y-3">
-                  {pastEvents[year].map((event, index) => (
+                  {events2024.company.map((event, index) => (
                     <li key={index} className="flex items-start">
-                      <div className="ml-2 text-gray-800">{event.title}</div>
+                      <span className="text-teal-600 font-medium min-w-12">{event.month}</span>
+                      <div className="ml-2">
+                        <div className="text-gray-800">{event.title}</div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-teal-700 mb-3 border-b pb-2">
+                  Workshop・勉強会
+                </h3>
+                <ul className="space-y-3">
+                  {events2024.workshop.map((event, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-teal-600 font-medium min-w-12">{event.month}</span>
+                      <div className="ml-2">
+                        <div className="text-gray-800">{event.title}</div>
+                      </div>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-          </section>
-        ))}
-    </div>
-  </div>
+          )}
+        </section>
+
+        {/* 過去の年度（折りたたみ式） */}
+        {Object.keys(pastEvents)
+          .sort((a, b) => parseInt(b) - parseInt(a))
+          .map((year) => (
+            <section key={year} className="mb-4 max-w-3xl mx-auto" ref={yearRefs[year]}>
+              <div
+                className="flex justify-between items-center bg-gray-100 p-3 rounded shadow-md cursor-pointer hover:bg-gray-200"
+                onClick={() => toggleYear(year)}
+              >
+                <h2 className="text-xl font-semibold text-gray-800">{year}年度</h2>
+                <span className="text-teal-600 text-2xl">{openYears[year] ? '−' : '+'}</span>
+              </div>
+
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  openYears[year] ? 'max-h-[1000px]' : 'max-h-0'
+                }`}
+              >
+                <div className="bg-white p-5 rounded-b-xl shadow-md border border-t-0 border-gray-200">
+                  <ul className="space-y-3">
+                    {pastEvents[year].map((event, index) => (
+                      <li key={index} className="flex items-start">
+                        <div className="ml-2 text-gray-800">{event.title}</div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
+          ))}
+      </div>
+    </section>
   );
 }

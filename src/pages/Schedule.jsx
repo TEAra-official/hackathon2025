@@ -172,12 +172,13 @@ export default function Schedule() {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-green-50 to-white min-h-screen py-8 px-4 pb-20 overflow-hidden">
+    <div className="bg-lime-50 min-h-screen py-20 px-4 pb-20 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* スケジュールの見出し */}
-        <h1 className="text-3xl font-bold text-center mb-8">
-          TEAra 年間スケジュール
+        <h1 className="text-center text-3xl md:text-4xl font-bold  mb-4 text-emerald-700">
+        TEAra 年間スケジュール
         </h1>
+        <div className="w-24 h-1.5 rounded-full bg-teal-400 mb-16 mx-auto" />
 
         {/* カテゴリ別のフィルター */}
         <div className="mb-8 flex flex-wrap justify-center gap-2">
