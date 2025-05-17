@@ -24,7 +24,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="relative w-full h-[66%]">
+    <header className="relative w-full h-screen">
       {/* 背景画像（画面全体）
       <div className="absolute inset-0 w-full h-full -z-10">
         <img
@@ -50,15 +50,21 @@ export default function Navbar() {
       </div>
    {/* ナビバー */}
    <nav className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-teal-400 to-green-400 shadow-md z-10">
-        <ul className="w-full flex justify-center gap-6 px-4 py-2 text-black font-medium text-sm">
+        <ul className="w-full flex justify-center gap-10 sm:gap-6 md:gap-8 lg:gap-12 px-4 py-2 text-white font-bold text-lg">
           <li>
-            <Link to="/">Home</Link>
+            <Link
+              className="hover:text-white hover:translate-y-1 transition-colors duration-200"
+              to="/"
+            >
+              Home
+            </Link>
           </li>
-      <li className="relative" ref={activityRef}>
+          <li className="relative" ref={activityRef}>
             {/* 活動ドロップダウン */}
             <button
               onClick={toggleActivityMenu}
-              className="font-medium text-[#646cff] hover:text-[#535bf2] focus:outline-none bg-transparent border-none p-0">
+              className="text-[#646cff] hover:text-white transition-colors duration-200 focus:outline-none bg-transparent border-none p-0"
+            >
               活動
             </button>
             {isActivityOpen && (
@@ -81,13 +87,28 @@ export default function Navbar() {
             )}
           </li>
           <li>
-            <Link to="/members">members</Link>
+            <Link
+              className="hover:text-white transition-colors duration-200"
+              to="/members"
+            >
+              members
+            </Link>
           </li>
           <li>
-            <Link to="/news">新歓情報</Link>
+            <Link
+              className="hover:text-white transition-colors duration-200"
+              to="/news"
+            >
+              新歓情報
+            </Link>
           </li>
           <li>
-            <Link to="/links">Link</Link>
+            <Link
+              className="hover:text-white transition-colors duration-200"
+              to="/links"
+            >
+              Link
+            </Link>
           </li>
         </ul>
       </nav>
